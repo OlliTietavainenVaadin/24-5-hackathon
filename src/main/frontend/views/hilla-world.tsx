@@ -4,6 +4,7 @@ import { Button } from '@vaadin/react-components/Button.js';
 import { Notification } from '@vaadin/react-components/Notification.js';
 import { TextField } from '@vaadin/react-components/TextField.js';
 import { HelloWorldService } from 'Frontend/generated/endpoints.js';
+import { PersonService} from "Frontend/generated/endpoints.js";
 
 export const config: ViewConfig = {
   menu: { order: 2, icon: 'line-awesome/svg/globe-solid.svg' },
@@ -11,8 +12,14 @@ export const config: ViewConfig = {
   rolesAllowed: ['ADMIN'],
 };
 
+const person = PersonService.getPersonSignal({defaultValue: {
+        name:'',
+        birthYear:0
+    }});
+
 export default function HillaWorldView() {
   const name = useSignal('');
+
 
   return (
     <>
@@ -31,6 +38,14 @@ export default function HillaWorldView() {
         >
           Say hello
         </Button>
+          <TextField label="Name" value={person.value.name}
+                     onValueChanged={(e) => {
+                         person.replace(person.value, {
+                             ...person.value,
+                             name: e.detail.value
+                         })
+                     }} />
+
       </section>
     </>
   );

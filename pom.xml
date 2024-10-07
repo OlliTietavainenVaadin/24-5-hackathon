@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
     <!-- Project from https://start.vaadin.com/project/30ba501c-112e-4ad7-b8df-71acebe2de03 -->
     <groupId>com.example.application</groupId>
-    <artifactId>v24-5-beta2</artifactId>
-    <name>v24-5-beta2</name>
+    <artifactId>v24-5-beta5</artifactId>
+    <name>v24-5-beta5</name>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
